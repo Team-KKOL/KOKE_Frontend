@@ -19,16 +19,26 @@ import MyInformation from "./subPages/MyInformation";
 import CoffeeDetails from "./pages/CoffeeDetails";
 import RoasteryDetails from "./pages/RoasteryDetails";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 
-
+const GlobalStyle = createGlobalStyle`
+  * {margin: 0; padding: 0;}
+  li {list-style: none;}
+  a { text-decoration: none; color: #333;}
+  img { display: block;}
+  body{
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+`;
 
 function App() {
   return (
     <div className="App">
+      <GlobalStyle />
       <Header />
 
       <Routes>
-        <Route path="*" element={<div>없는 페이지</div>} />
+        <Route path="*" element={<div>없는 페이지입니다</div>} />
         <Route path="/" element={<Main />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
@@ -40,13 +50,13 @@ function App() {
         </Route>
 
         <Route path="/MyPage" element={<MyPage />}>
-          <Route path="SubscriptionSchedule" element={<Subscribe />} />   
-          <Route path="MyCart" element={<MyCart />} /> 
-          <Route path="ProductOfInterest" element={<ProductOfInterest />} /> 
-          <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} /> 
-          <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} /> 
-          <Route path="MyReview" element={<MyReview />} /> 
-          <Route path="MyInformation" element={<MyInformation />} /> 
+          <Route path="SubscriptionSchedule" element={<Subscribe />} />
+          <Route path="MyCart" element={<MyCart />} />
+          <Route path="ProductOfInterest" element={<ProductOfInterest />} />
+          <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} />
+          <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} />
+          <Route path="MyReview" element={<MyReview />} />
+          <Route path="MyInformation" element={<MyInformation />} />
         </Route>
       </Routes>
 
