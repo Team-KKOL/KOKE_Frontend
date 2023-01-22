@@ -10,10 +10,21 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
+import { BiUser } from "react-icons/bi";
+import { BsBag } from "react-icons/bs";
+import { useSelector } from "react-redux";
+
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function Header() {
   let navigate = useNavigate();
- 
+
+  let User = useSelector((state) => {
+    return state;
+  });
+  console.log(User.user);
 
   const Form_box = styled.div`
     display: flex;
@@ -39,8 +50,10 @@ export default function Header() {
 
   return (
     <Navbar
-      expand="lg"
-      style={{ backgroundColor: "#B4712F", height: "70px", fontStyle: "" }}
+      // expand="lg"
+      variant="dark"
+      sticky="top"
+      style={{ backgroundColor: "#B4712F", height: "70px" }}
     >
       <Container fluid style={{ maxWidth: "1276px" }}>
         <Navbar.Brand
@@ -58,7 +71,7 @@ export default function Header() {
           />
         </Navbar.Brand>
         {/* <Navbar.Toggle aria-controls="navbarScroll" /> */}
-        <Navbar.Collapse id="navbarScroll" >
+        <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
@@ -68,7 +81,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/");
               }}
-              className="text-white"
+              // className="text-white"
             >
               Home
             </Nav.Link>
@@ -98,33 +111,69 @@ export default function Header() {
                 aria-label="Search"
               />
               <Button_search>
-                <FaSearch style={{color: "#B4712F", marginTop: "-6px"}}/>
+                <FaSearch style={{ color: "#B4712F", marginTop: "-6px" }} />
               </Button_search>
             </Form_box>
           </Form>
+          {User.user === null ? (
+            <Nav
+              // className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link
+                onClick={() => {
+                  navigate("/Login");
+                }}
+                className="text-white"
+              >
+                로그인
+              </Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  navigate("/SignUp");
+                }}
+                className="text-white"
+              >
+                회원가입
+              </Nav.Link>
+            </Nav>
+          ) : (
+            <Nav
+              // className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link
+                onClick={() => {
+                  navigate("/MyPage/MyCart");
+                }}
+                className="text-white"
+              >
+                <BsBag style={{ fontSize: "30px" }} />
+              </Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  navigate("/MyPage");
+                }}
+                className="text-white"
+              >
+                <BiUser style={{ fontSize: "32px" }} />
+              </Nav.Link>
 
-          <Nav
-            // className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link
-              onClick={() => {
-                navigate("/Login");
-              }}
-              className="text-white"
-            >
-              로그인
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                navigate("/SignUp");
-              }}
-              className="text-white"
-            >
-              회원가입
-            </Nav.Link>
-          </Nav>
+              <NavDropdown id="collasible-nav-dropdown" align="end" >
+                <NavDropdown.Item style={{ textAlign: "end", color: "#222",  }} disabled>{User.user} 님</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={() => { navigate("/MyPage"); }}>
+                  마이페이지
+                </NavDropdown.Item> 
+                <NavDropdown.Item onClick={() => { navigate("/MyPage"); }} >
+                  로그아웃
+                </NavDropdown.Item>
+              </NavDropdown>
+ 
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -28,7 +28,6 @@ const FooterTop = styled.div`
 `;
 
 const Inquiry = styled.div`
-  text-align: start;
   padding-right: 100px;
 `;
 
@@ -43,7 +42,6 @@ const InquiryButton = styled.button`
 `;
 
 const ServiceCenter = styled.div`
-  text-align: start;
   padding-right: 400px;
 `;
 
@@ -58,7 +56,6 @@ const FooterBottom = styled.div`
 `;
 
 const TextBox = styled.div`
-  text-align: start;
   color: gray;
   font-size: 9px;
   line-height: 16px;

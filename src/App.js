@@ -19,7 +19,7 @@ import MyInformation from "./subPages/MyInformation";
 import CoffeeDetails from "./pages/CoffeeDetails";
 import RoasteryDetails from "./pages/RoasteryDetails";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {margin: 0; padding: 0;}
@@ -34,33 +34,35 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <div className="App">
-      <GlobalStyle />
-      <Header />
+      {/* <ThemeProvider> */}
+        <GlobalStyle />
+        <Header />
 
-      <Routes>
-        <Route path="*" element={<div>없는 페이지입니다</div>} />
-        <Route path="/" element={<Main />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/AllCoffee" element={<AllCoffee />}>
-          <Route path="CoffeeDetails/:id" element={<CoffeeDetails />} />
-        </Route>
-        <Route path="/AllRoastery" element={<AllRoastery />}>
-          <Route path="AllRoastery/:id" element={<RoasteryDetails />} />
-        </Route>
+        <Routes>
+          <Route path="*" element={<div>없는 페이지입니다</div>} />
+          <Route path="/" element={<Main />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/AllCoffee" element={<AllCoffee />}>
+            <Route path="CoffeeDetails/:id" element={<CoffeeDetails />} />
+          </Route>
+          <Route path="/AllRoastery" element={<AllRoastery />}>
+            <Route path="AllRoastery/:id" element={<RoasteryDetails />} />
+          </Route>
 
-        <Route path="/MyPage" element={<MyPage />}>
-          <Route path="SubscriptionSchedule" element={<Subscribe />} />
-          <Route path="MyCart" element={<MyCart />} />
-          <Route path="ProductOfInterest" element={<ProductOfInterest />} />
-          <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} />
-          <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} />
-          <Route path="MyReview" element={<MyReview />} />
-          <Route path="MyInformation" element={<MyInformation />} />
-        </Route>
-      </Routes>
+          <Route path="/MyPage" element={<MyPage />}>
+            <Route path="SubscriptionSchedule" element={<Subscribe />} />
+            <Route path="MyCart" element={<MyCart />} />
+            <Route path="ProductOfInterest" element={<ProductOfInterest />} />
+            <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} />
+            <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} />
+            <Route path="MyReview" element={<MyReview />} />
+            <Route path="MyInformation" element={<MyInformation />} />
+          </Route>
+        </Routes>
 
-      <Footer />
+        <Footer />
+      {/* </ThemeProvider> */}
     </div>
   );
 }
