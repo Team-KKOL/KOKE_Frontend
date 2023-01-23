@@ -53,7 +53,7 @@ export default function Header() {
       // expand="lg"
       variant="dark"
       sticky="top"
-      style={{ backgroundColor: "#B4712F", height: "70px" }}
+      style={{ backgroundColor: "#B4712F", height: "70px", minWidth: "850px" }}
     >
       <Container fluid style={{ maxWidth: "1276px" }}>
         <Navbar.Brand
@@ -81,7 +81,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/");
               }}
-              // className="text-white"
+              className="text-white"
             >
               Home
             </Nav.Link>
@@ -164,10 +164,10 @@ export default function Header() {
               <NavDropdown id="collasible-nav-dropdown" align="end" >
                 <NavDropdown.Item style={{ textAlign: "end", color: "#222",  }} disabled>{User.user} 님</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={() => { navigate("/MyPage"); }}>
+                <NavDropdown.Item onClick={() => { navigate("/MyPage"); }} style={{ textAlign: "center" }}>
                   마이페이지
                 </NavDropdown.Item> 
-                <NavDropdown.Item onClick={() => { navigate("/MyPage"); }} >
+                <NavDropdown.Item onClick={() => { navigate("/MyPage"); }} style={{ textAlign: "center" }}>
                   로그아웃
                 </NavDropdown.Item>
               </NavDropdown>

@@ -1,0 +1,83 @@
+#app {
+    height: 100%
+}
+
+html,
+body {
+    position: relative;
+    /* height: 100%; */
+}
+
+body {
+    /* background: #eee; */
+    /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.outerBox {
+    position: relative;
+}
+
+.mySwiper {
+    filter: grayscale(0.5);
+}
+
+.grayBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; 
+    /* background-color: gray; */
+    background-color: black;
+    opacity: 0.8;
+    width: 650px;
+    height: 400px;
+    text-align: center;
+}
+
+.grayBox h1 {
+    color: white;
+    margin: 70px 0 50px;
+    opacity: 1;
+    line-height: 50px;
+}
+
+.grayBox h4 {
+    color: #fff;
+    margin: 30px 0;
+    opacity: 1;
+    line-height: 35px;
+    font-weight: 300;
+}
+
+.swiper {
+    width: 100vw;
+    height: calc(100vh - 70px - 20px);
+}
+
+.swiper-slide {
+    background-position: center;
+    /* background-size: cover; */
+    background: no-repeat fixed center center/cover;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    min-width: 1276px;
+    min-height: 100vh;
+}
+
+/* .swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+} */
+
+
+.swiper-pagination-bullet {
+    background-color: #60370f;
+}
