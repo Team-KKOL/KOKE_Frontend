@@ -9,39 +9,8 @@ const button = css`
   border-radius: 20px;
   /* float: center; */
 `;
-const StyledModal = styled.div`
-  background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  /* z-index: 999; */
-`;
-const StyledDiv = styled.div`
-  background-color: #faf7e8;
-  border: 1px solid #b4712f;
-  padding: 30px 30px 30px 30px;
-  border-radius: 10px;
-  /* text-align: center; */
-  width: 500px;
-  height: 400px;
-  z-index: 999; //최상단 위치
-  //중앙배치
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-`;
-const CloseBtn = styled.button`
-  border: none;
-  float: right;
-  background-color: transparent;
-`;
 const Header = styled.div`
   display: flex;
-  border-bottom: 1px solid #686868;
   margin-bottom: 15px;
   & svg {
     color: #c4c4c4;
@@ -57,15 +26,55 @@ const Header = styled.div`
     color: #ffae00;
   }
 `;
-const Title = styled.p`
-  font-weight: bold;
-  text-align: left;
-  margin-right: 200px;
-`;
+
 const Text = styled.textarea`
   width: 100%;
   height: 80%;
   outline: none;
+  border: none;
+`;
+const Main = styled.div`
+  width: 100vw;
+  height: 23vh;
+  border-radius: 15px;
+  display: block;
+  padding: 30px 30px 0px 30px;
+  margin: 30px 100px 100px 50px;
+  background-color: #faf7e8;
+  min-width: 300px;
+  max-width: 1432px;
+`;
+const Container = styled.div`
+  display: flex;
+`;
+const Img = styled.img`
+  background-color: #ffffff;
+  width: 20%;
+  margin-right: 50px;
+`;
+const CardBody = styled.div`
+  display: block;
+  width: 50%;
+  text-align: left;
+`;
+const Title = styled.p`
+  font-weight: bold;
+`;
+const Flaver = styled.p``;
+const Roastery = styled.p``;
+const ReviewDate = styled.p`
+  color: #949494;
+`;
+const CardText = styled.div`
+  border: 1px solid #949494;
+  /* display: flex; */
+  border-radius: 5px;
+  /* align-items: center;
+  justify-content: center; */
+  width: 104.5%;
+  background-color: #ffffff;
+  margin: 20px 0px 0px -29px;
+  padding: 15px 30px 5px 30px;
 `;
 const CancelBtn = styled.button`
   ${button}
@@ -73,13 +82,14 @@ const CancelBtn = styled.button`
   background-color: #faf7e8;
   margin-right: 20px;
 `;
-const LogoutBtn = styled.button`
+const ModifyBtn = styled.button`
   ${button}
   color: #faf7e8;
   background-color: #b4712f;
+  margin-right: 20px;
 `;
 
-export default function ReviewModal({ setModal }) {
+export default function ModalReviewModify({ setModal }) {
   const [text, setText] = useState("");
   //별점체크
   const [star, setStar] = useState([false, false, false, false, false]);
@@ -102,29 +112,19 @@ export default function ReviewModal({ setModal }) {
   const closeModal = () => {
     setModal(false);
   };
-  const onSubmitLogout = async () => {
-    axios({
-      method: "POST",
-      // url: "http://13.125.91.209:9002/logoutUser",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8;",
-      },
-    })
-      .then((res) => {
-        const test = JSON.stringify(res.data.message);
-        alert(test);
-      })
-      .catch((err) => {
-        console.log("login" + err);
-        alert("로그아웃에 실패하였습니다.");
-      });
-  };
 
   return (
-    <StyledModal>
-      <StyledDiv>
-        <CloseBtn onClick={closeModal}>X</CloseBtn>
+    <Main>
+      <Container>
+        <Img alt="img"></Img>
+        <CardBody>
+          <Title>상품명</Title>
+          <Flaver>맛1</Flaver>
+          <Roastery>로스터리명</Roastery>
+        </CardBody>
+        <ReviewDate>2022.00.00</ReviewDate>
+      </Container>
+      <CardText>
         <Header>
           <Title>상품명</Title>
           {startArray.map((arr) => (
@@ -137,9 +137,10 @@ export default function ReviewModal({ setModal }) {
           ))}
         </Header>
         <Text type="text" value={text} onChange={onChangeText} />
-        <CancelBtn onClick={closeModal}>취소</CancelBtn>
-        <LogoutBtn onClick={onSubmitLogout}>리뷰등록</LogoutBtn>
-      </StyledDiv>
-    </StyledModal>
+        <CancelBtn>삭제</CancelBtn>
+        <ModifyBtn>수정</ModifyBtn>
+        <CancelBtn onClick={closeModal}>닫기</CancelBtn>
+      </CardText>
+    </Main>
   );
 }

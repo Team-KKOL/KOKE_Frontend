@@ -20,8 +20,6 @@ import CoffeeDetails from "./pages/CoffeeDetails";
 import RoasteryDetails from "./pages/RoasteryDetails";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 
-
-
 function App() {
   return (
     <div className="App">
@@ -40,13 +38,13 @@ function App() {
         </Route>
 
         <Route path="/MyPage" element={<MyPage />}>
-          <Route path="SubscriptionSchedule" element={<Subscribe />} />   
-          <Route path="MyCart" element={<MyCart />} /> 
-          <Route path="ProductOfInterest" element={<ProductOfInterest />} /> 
-          <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} /> 
-          <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} /> 
-          <Route path="MyReview" element={<MyReview />} /> 
-          <Route path="MyInformation" element={<MyInformation />} /> 
+          <Route path="SubscriptionSchedule" element={<Subscribe />} />
+          <Route path="MyCart" element={<MyCart />} />
+          <Route path="ProductOfInterest" element={<ProductOfInterest />} />
+          <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} />
+          <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} />
+          <Route path="MyReview" element={<MyReview />} />
+          <Route path="MyInformation" element={<MyInformation />} />
         </Route>
       </Routes>
 
