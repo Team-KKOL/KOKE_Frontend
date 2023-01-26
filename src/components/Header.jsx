@@ -75,7 +75,7 @@ export default function Header() {
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
+            style={{ maxHeight: "100px", fontSize: "16px" }}
             navbarScroll
           >
             <Nav.Link
@@ -119,7 +119,7 @@ export default function Header() {
           {User.user === null ? (
             <Nav
               // className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
+              style={{ maxHeight: "100px", fontSize: "16px" }}
               navbarScroll
             >
               <Nav.Link

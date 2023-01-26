@@ -3,17 +3,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+// import "swiper/css";
+// import "swiper/css/effect-fade";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
 
 // import "./styles.css";
 // import "./components/MainImg.modul.css";
 
 // import required modules
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
-import styled from "styled-components";
+// import styled from "styled-components";
+// import styles from "./MainImg.modul.css"
+import "./MainImg.modul.css"
 
 // export default function App() {
 export default function MainImg() {
@@ -50,7 +52,7 @@ export default function MainImg() {
       </Swiper>
       <div className="grayBox">
         <h1>커피 맛집 로스터리 모든 원두를<br/>편하게 구독해서 이용하세요</h1>
-        <h4>커피 맛있다고 소문난 로스터리의 원두가 다 있어요.<br/>3일 내 로스팅된 원두로 신선하게 즐기세요.</h4>
+        <h5>커피 맛있다고 소문난 로스터리의 원두가 다 있어요.<br/>3일 내 로스팅된 원두로 신선하게 즐기세요.</h5>
       </div>
     </div>
   );

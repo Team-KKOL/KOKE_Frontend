@@ -1,12 +1,12 @@
-#app {
+/* #app {
     height: 100%
 }
 
 html,
 body {
     position: relative;
-    /* height: 100%; */
-}
+    height: 100%;
+} */
 
 body {
     /* background: #eee; */
@@ -22,7 +22,9 @@ body {
 }
 
 .mySwiper {
-    filter: grayscale(0.5);
+    filter: grayscale(0.5); 
+    width: 100vw;
+    height: calc(100vh - 70px - 15px);
 }
 
 .grayBox {
@@ -46,7 +48,7 @@ body {
     line-height: 50px;
 }
 
-.grayBox h4 {
+.grayBox h5 {
     color: #fff;
     margin: 30px 0;
     opacity: 1;
@@ -54,18 +56,14 @@ body {
     font-weight: 300;
 }
 
-.swiper {
-    width: 100vw;
-    height: calc(100vh - 70px - 20px);
-}
 
-.swiper-slide {
+.mySwiper .swiper-slide {
     background-position: center;
     /* background-size: cover; */
     background: no-repeat fixed center center/cover;
 }
 
-.swiper-slide img {
+.mySwiper .swiper-slide img {
     display: block;
     width: 100%;
     min-width: 1276px;
@@ -78,6 +76,6 @@ body {
 } */
 
 
-.swiper-pagination-bullet {
+.mySwiper .swiper-pagination-bullet {
     background-color: #60370f;
 }

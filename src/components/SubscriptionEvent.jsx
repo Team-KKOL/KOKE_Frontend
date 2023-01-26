@@ -3,6 +3,7 @@ import React from "react";
 // import styled, { ThemeProvider } from "styled-components";
 import styled from "styled-components";
 import { FcElectricity, FcApproval, FcShipped } from "react-icons/fc";
+import { MainTitle, SubTitle } from "./MainTitle";
 
 export default function SubscriptionEvent() {
   const Outerbox = styled.div`
@@ -34,29 +35,21 @@ export default function SubscriptionEvent() {
   `;
 
   const BlockText01 = styled.h2`
-    font-size: 22px
+    font-size: 22px;
+    font-weight: 500;
   `;
 
   const BlockText02 = styled.h5`
     font-size: 18px;
     margin-top: 16px;
+    font-weight: 400;
   `;
 
   return (
     <>
       <Outerbox>
-        <h3 style={{ fontSize: "40px", fontWeight: "500", lineHeight: "50px", marginBottom: "20px" }}>
-          첫 구독 혜택으로
-          <br />
-          부담 없이 시작하세요
-        </h3>
-        <h5 style={{ fontSize: "20px", fontWeight: "400", lineHeight: "30px", marginBottom: "50px" }}>
-          구독을 처음 시작한다면
-          <br />
-          누구나 3,000원 할인에 100% 무료 교환 혜택으로
-          <br />
-          부담 없이 시작해요.
-        </h5>
+        <MainTitle Mtext={["첫 구독 혜택으로", <br />, "부담 없이 시작하세요"]} />  
+        <SubTitle Stext={["구독을 처음 시작한다면", <br />, "누구나 3,000원 할인에 100% 무료 교환 혜택으로", <br />, "부담 없이 시작해요."]} />  
 
         <div style={{ display: "flex", justifyContent: "space-between" }}>
            <IconOuterBlock>
@@ -66,7 +59,7 @@ export default function SubscriptionEvent() {
               />
             </IconBlock>
             <BlockTextBox>
-              <BlockText01>첫 결제 <string>3,000</string>원 할인</BlockText01>
+              <BlockText01>첫 결제 <strong>3,000</strong>원 할인</BlockText01>
               <BlockText02>누구나 3,000원 할인으로<br />부담 없이 시작해요.</BlockText02>
             </BlockTextBox>
           </IconOuterBlock>
@@ -78,7 +71,7 @@ export default function SubscriptionEvent() {
               />
             </IconBlock>
             <BlockTextBox>
-              <BlockText01>첫 커피 <string>100%</string> 책임제</BlockText01>
+              <BlockText01>첫 커피 <strong>100%</strong> 책임제</BlockText01>
               <BlockText02>첫 커피는 맛없으면 코케에서<br />100% 무료 교환해드려요.</BlockText02>
             </BlockTextBox>
           </IconOuterBlock>
