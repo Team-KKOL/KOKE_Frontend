@@ -10,15 +10,19 @@ import store from "./store";
 import "swiper/css/bundle";
 // import "./styles.css";
 import "./components/MainImg.modul.css";
+// import { ThemeProvider } from "styled-components";
+// import theme from "./theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {/* <ThemeProvider theme={theme}> */}
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
+    {/* </ThemeProvider> */}
   </React.StrictMode>
 );
 

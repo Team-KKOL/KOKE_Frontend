@@ -46,6 +46,7 @@ export default function Header() {
     background-color: transparent;
     width: 200px;
     border-color: transparent;
+    outline: none;
   `;
 
   return (

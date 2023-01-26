@@ -20,6 +20,7 @@ import CoffeeDetails from "./pages/CoffeeDetails";
 import RoasteryDetails from "./pages/RoasteryDetails";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 const GlobalStyle = createGlobalStyle`
   * {margin: 0; padding: 0;}
@@ -34,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <div className="App">
-      {/* <ThemeProvider> */}
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
 
@@ -62,7 +63,7 @@ function App() {
         </Routes>
 
         <Footer />
-      {/* </ThemeProvider> */}
+      </ThemeProvider>
     </div>
   );
 }

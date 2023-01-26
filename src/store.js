@@ -3,8 +3,8 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 let user = createSlice({
     name: 'user',
-    initialState: 'koke'
-    // initialState: null
+    // initialState: 'koke'
+    initialState: null
 })
 
 
