@@ -14,7 +14,7 @@ export default function Login() {
   //   accessToken = token;
   // });
 
-  // checkbox 확인
+  // // checkbox 확인
   // let check = "";
   // localStorage.getItem("checkbox").then((result) => {
   //   // console.log("checkbox 확인: " + result);
@@ -70,9 +70,32 @@ export default function Login() {
     //     console.log("자동 로그인 완료: " + res);
     //   })
     //   .catch((err) => {
+    // refreshSignin()
     //     console.log("자동로그인" + err);
     //     alert("자동로그인 기간이 만료되었습니다.");
     //   });
+  };
+
+  //refresh 재발급
+  const refreshSignin = () => {
+    axios({
+      method: "POST",
+      url: "http://192.168.10.54:8500/login/auto",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8;",
+      },
+      data: {
+        refreshToken: localStorage.getItem("refreshToken"),
+      },
+    })
+      .then((res) => {
+        console.log("자동 로그인 완료: " + res);
+      })
+      .catch((err) => {
+        console.log("자동로그인" + err);
+        alert("자동로그인 기간이 만료되었습니다.");
+      });
   };
 
   // const _handleCheckBtnPress = () => {
@@ -108,42 +131,10 @@ export default function Login() {
     })
       .then((res) => {
         const data = res.data.body;
-        localStorage.removeItem("userId").then((result) => {
-          console.log("삭제!!!:" + result);
-        });
-        localStorage.removeItem("accessToken").then((result) => {
-          console.log("삭제!!!:" + result);
-        });
-        localStorage.removeItem("refreshToken");
-
+        localStorage.clear();
         localStorage.setItem("userId", data.accessToken.userId);
         localStorage.setItem("accessToken", data.accessToken.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken.refreshToken);
-
-        let userId = localStorage
-          .getItem("userId")
-          .then((value) => {
-            console.log("saved userId : " + value);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-        let accessToken = localStorage
-          .getItem("accessToken")
-          .then((value) => {
-            console.log("saved accessToken : " + value);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-        let refreshToken = localStorage
-          .getItem("refreshToken")
-          .then((value) => {
-            console.log("saved refreshToken : " + value);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
         console.log(
           "id" +
             data.accessToken.userId +
@@ -152,7 +143,7 @@ export default function Login() {
             "refresh" +
             data.refreshToken.refreshToken
         );
-        alert("success.");
+        alert("로그인에 성공하였습니다.");
       })
       .catch((err) => {
         console.log("login" + err);

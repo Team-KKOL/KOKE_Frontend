@@ -36,8 +36,10 @@ $grey-color: #686868;
       height: 60vh;
       width: 60vw;
       .idCheck {
+        display: block;
         .idCheckDiv {
           display: flex;
+          width: 100%;
         }
         .duplicateCheck {
           border: 1px solid #b4712f;
@@ -50,22 +52,31 @@ $grey-color: #686868;
           margin: 32px 0px 0px 30px;
         }
       }
-      span {
-        text-align: left;
-        float: left;
-        margin-bottom: 1rem;
-        width: 100%;
+      // span {
+      //   text-align: left;
+      //   float: left;
+      //   margin-bottom: 1rem;
+      //   width: 100%;
+      // .message {
+      //   text-align: left;
+      //   float: left;
+      //   margin-bottom: 1rem;
+      //   width: 100%;
+      //   &.success {
+      //     color: $grey-color;
+      //   }
+      //   &.error {
+      //     color: #f90505;
+      //   }
+      // }
+      // }
+      .message-success {
+        color: $grey-color;
       }
-      .message {
-        &.success {
-          color: $grey-color;
-          // margin-bottom: 1rem;
-        }
-        &.error {
-          color: #f90505;
-          // margin-bottom: 1rem;
-        }
+      .messageerror {
+        color: #f90505;
       }
+
       .checkbox {
         color: $grey-color;
         margin-bottom: 5rem;

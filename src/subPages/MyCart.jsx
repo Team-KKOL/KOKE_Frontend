@@ -1,5 +1,5 @@
 /*My 주문내영 */
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Grid = styled.div`
@@ -75,6 +75,7 @@ const RemoveBtn = styled.button`
 `;
 
 export default function MyCart() {
+  // const [deliveryState, setDelivreyState] = useState("")
   return (
     <Grid>
       <MainTitle>MY 주문내역</MainTitle>

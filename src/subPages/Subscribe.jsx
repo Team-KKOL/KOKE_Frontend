@@ -29,12 +29,12 @@ const Main = styled.div`
 `;
 const Img = styled.img`
   background-color: #ffffff;
-  width: 20%;
+  width: 15%;
   margin-right: 50px;
 `;
 const CardBody = styled.div`
   display: block;
-  width: 50%;
+  width: 60%;
   text-align: left;
 `;
 const Title = styled.p`

@@ -2,6 +2,39 @@ import React, { useState } from "react";
 import axios from "axios";
 import Input from "../components/Input";
 import Styles from "./SignUp.module.scss";
+import styled, { css } from "styled-components";
+
+const StyledSpan = css`
+  text-align: left;
+  float: left;
+  margin-bottom: 1rem;
+  width: 100%;
+`;
+
+const StyledId = styled.span`
+  color: ${(props) => (props.isId ? "black" : "red")};
+  ${StyledSpan}
+`;
+const StyledEmail = styled.span`
+  color: ${(props) => (props.isEmail ? "black" : "red")};
+  ${StyledSpan}
+`;
+const StyledName = styled.span`
+  color: ${(props) => (props.isName ? "black" : "red")};
+  ${StyledSpan}
+`;
+const StyledPwd = styled.span`
+  color: ${(props) => (props.isPassword ? "black" : "red")};
+  ${StyledSpan}
+`;
+const StyledPwdConfirm = styled.span`
+  color: ${(props) => (props.isPasswordConfirm ? "black" : "red")};
+  ${StyledSpan}
+`;
+const StyledPhone = styled.span`
+  color: ${(props) => (props.isPhoneNum ? "black" : "red")};
+  ${StyledSpan}
+`;
 
 export default function SignUp() {
   const [id, setId] = useState("");
@@ -101,11 +134,11 @@ export default function SignUp() {
     const regex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,20}$/;
     setId(e.target.value);
     if (regex.test(e.target.value)) {
-      setIdMessage("올바른 ID 형식입니다");
       setIsId(true);
+      setIdMessage("올바른 ID 형식입니다");
     } else {
-      setIdMessage("영문,숫자 조합 8자리 입력해주세요");
       setIsId(false);
+      setIdMessage("영문,숫자 조합 8자리 입력해주세요");
     }
   };
 
@@ -115,8 +148,8 @@ export default function SignUp() {
       setNameMessage("5글자 이상 11글자 이하로 입력해주세요");
       setIsName(false);
     } else {
-      setNameMessage("올바른 이름 형식입니다");
       setIsName(true);
+      setNameMessage("올바른 이름 형식입니다");
     }
   };
 
@@ -149,8 +182,9 @@ export default function SignUp() {
   };
 
   const onChangePwConfirm = (e) => {
-    setPasswordConfirm(e.target.value);
-    if (password === passwordConfirm) {
+    const passwordConfirmCurrent = e.target.value;
+    setPasswordConfirm(passwordConfirmCurrent);
+    if (password === passwordConfirmCurrent) {
       setPasswordConfirmMessage("확인이 완료되었습니다");
       setIsPasswordConfirm(true);
     } else {
@@ -188,7 +222,6 @@ export default function SignUp() {
           <div className={Styles.idCheck}>
             <div className={Styles.idCheckDiv}>
               <Input
-                // style={{ width: "100%", textAlign: "left" }}
                 value={id}
                 name="id"
                 label="ID"
@@ -202,9 +235,7 @@ export default function SignUp() {
                 중복체크
               </button>
             </div>
-            <span className={`message ${isId ? "success" : "error"}`}>
-              {idMessage}
-            </span>
+            <StyledId isId={isId}>{idMessage}</StyledId>
           </div>
 
           <div className={Styles.idCheck}>
@@ -223,9 +254,7 @@ export default function SignUp() {
                 중복체크
               </button>
             </div>
-            <span className={`message ${isEmail ? "success" : "error"}`}>
-              {emailMessage}
-            </span>
+            <StyledEmail isEmail={isEmail}>{emailMessage}</StyledEmail>
           </div>
 
           <Input
@@ -235,9 +264,7 @@ export default function SignUp() {
             type="text"
             onChange={onChangeName}
           ></Input>
-          <span className={`message ${isName ? "success" : "error"}`}>
-            {nameMessage}
-          </span>
+          <StyledName isName={isName}>{nameMessage}</StyledName>
 
           <Input
             value={password}
@@ -249,9 +276,8 @@ export default function SignUp() {
           >
             {/* <button onClick={togglePassword} button="dnsaknd"></button> */}
           </Input>
-          <span className={`message ${isPassword ? "success" : "error"}`}>
-            {passwordMessage}
-          </span>
+          <StyledPwd isPassword={isPassword}>{passwordMessage}</StyledPwd>
+
           <Input
             value={passwordConfirm}
             name="passwordConfirm"
@@ -259,11 +285,9 @@ export default function SignUp() {
             type="password"
             onChange={onChangePwConfirm}
           ></Input>
-          <span
-            className={`message ${isPasswordConfirm ? "success" : "error"}`}
-          >
+          <StyledPwdConfirm isPasswordConfirm={isPasswordConfirm}>
             {passwordConfirmMessage}
-          </span>
+          </StyledPwdConfirm>
           <Input
             value={phoneNum}
             name="phoneNum"
@@ -273,9 +297,8 @@ export default function SignUp() {
             maxlength={13}
             onChange={onChangePhoneNum}
           ></Input>
-          <span className={`message ${isPhoneNum ? "success" : "error"}`}>
-            {phoneNumMessage}
-          </span>
+          <StyledPhone isPhoneNum={isPhoneNum}>{phoneNumMessage}</StyledPhone>
+
           <div className={Styles.checkbox}>
             <input
               className={Styles.cb}
