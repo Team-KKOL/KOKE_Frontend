@@ -54,7 +54,7 @@ export default function Header() {
       // expand="lg"
       variant="dark"
       sticky="top"
-      style={{ backgroundColor: "#B4712F", height: "70px", minWidth: "850px" }}
+      style={{ backgroundColor: "#B4712F", height: "70px", minWidth: "850px", width: "100vw" }}
     >
       <Container fluid style={{ maxWidth: "1276px" }}>
         <Navbar.Brand

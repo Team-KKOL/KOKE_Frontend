@@ -8,6 +8,7 @@ import SubscriptionEvent from '../components/SubscriptionEvent'
 export default function Main() {
   const Maindiv = styled.div`
     background-color: ${({ theme }) => theme.colors.Beige};
+    width: 100vw;
   `
 
   return (
