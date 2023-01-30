@@ -40,7 +40,8 @@ export default function SubscriptionEvent() {
   `;
 
   const BlockText02 = styled.h5`
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 23px;
     margin-top: 16px;
     font-weight: 400;
   `;

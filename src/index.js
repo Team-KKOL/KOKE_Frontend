@@ -10,6 +10,7 @@ import store from "./store";
 import "swiper/css/bundle";
 // import "./styles.css";
 import "./components/MainImg.modul.css";
+import ScrollToTop from "./ScrollToTop";
 // import { ThemeProvider } from "styled-components";
 // import theme from "./theme";
 
@@ -19,6 +20,7 @@ root.render(
     {/* <ThemeProvider theme={theme}> */}
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </Provider>

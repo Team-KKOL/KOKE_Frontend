@@ -2,6 +2,7 @@
 const colors = {
   gray: "#707070",
   brown: "#b4712f",
+  Bbrown: "#DEA462",
   darkBrown: "#60370f",
   lightBrown: "#ebe6d4",
   Beige: "#faf7e8",

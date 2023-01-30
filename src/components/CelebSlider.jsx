@@ -18,8 +18,8 @@ import axios from "axios";
 import styled from "styled-components";
 
 export default function CelebSlider(cardList) {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  // const prevRef = useRef(null);
+  // const nextRef = useRef(null);
 
   const [dataList, setDataList] = useState([]);
 
@@ -125,8 +125,8 @@ export default function CelebSlider(cardList) {
               </div>
               <ImQuotesLeft style={{margin:"10px"}}/>
               <div className="TextContainer">
-                <text>{dataList[i].title}</text>            
-                <text>{dataList[i].comment} </text>
+                <p>{dataList[i].title}</p>            
+                <p>{dataList[i].comment} </p>
                 <div className="Textflex">
                   <p className="celeb_name">{dataList[i].celebrityName} · </p>
                   <p className="celeb_job">  {dataList[i].celebrityJob}</p>
@@ -136,59 +136,9 @@ export default function CelebSlider(cardList) {
             </SwiperSlide>
             
         ))}
-        {/* <SwiperSlide>
-          <div className="imgBox">Slide 1</div>
-          <ImQuotesLeft style={{color:"gray"}}/>
-          <div className="TextContainer">
-            <text>title</text>            
-            <text>text</text>
-            <div className="Textflex">
-              <p className="celeb_name">celeb_name</p>
-              <p className="celeb_job">celeb_job</p>
-            </div>            
-            <p className="celeb_id">@celeb_id</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="imgBox">Slide 2</div>
-          <ImQuotesLeft/>
-          <div className="TextContainer">
-            <text>title</text>            
-            <text>text</text>
-            <div className="Textflex">
-              <p className="celeb_name">celeb_name</p>
-              <p className="celeb_job">celeb_job</p>
-            </div>            
-            <p className="celeb_id">@celeb_id</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide> */}
+         
       </Swiper>
-
-      {/* <div>
-        <button ref={prevRef} className="mySwiper_celeb">
-            이전 버튼(img 태그 등등)
-        </button>
-        <Swiper {...swiperSetting}>
-        <Swiper>
-                {dataList.map((card) => (
-                    <SwiperSlide key={card.key}>{card}</SwiperSlide>
-                ))}
-
-                {comboboxs.map((combobox) => {
-              return (
-                <option key={`${combobox[i]}`} value={`${combobox.value}`}>{`${combobox.text}`}</option>
-              );
-            })} 
-
-        </Swiper>
-        <button ref={nextRef}>
-            다음 버튼(img 태그 등등)
-        </button>
-      </div> */}
+ 
     </>
   );
 }
