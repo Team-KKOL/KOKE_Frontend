@@ -21,6 +21,7 @@ import RoasteryDetails from "./pages/RoasteryDetails";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import theme from "./theme";
+import MissingPage from "./pages/MissingPage";
 
 const GlobalStyle = createGlobalStyle`
   * {margin: 0; padding: 0;}
@@ -40,7 +41,7 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="*" element={<div>없는 페이지입니다</div>} />
+          <Route path="*" element={<MissingPage /> } />
           <Route path="/" element={<Main />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />

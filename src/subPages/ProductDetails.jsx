@@ -1,7 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Outer = styled.div`
+  background-color: ${({theme}) => theme.colors.lightBrown};
+  padding: 30px;
+` 
 
 export default function ProductDetails() {
   return (
-    <div>ProductDetails_상품상세정보</div>
+    <Outer>
+        dsfsfds
+    </Outer>
   )
 }
