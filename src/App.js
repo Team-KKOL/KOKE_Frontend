@@ -44,12 +44,11 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/AllCoffee" element={<AllCoffee />}>
-            <Route path="CoffeeDetails/:id" element={<CoffeeDetails />} />
-          </Route>
-          <Route path="/AllRoastery" element={<AllRoastery />}>
-            <Route path="AllRoastery/:id" element={<RoasteryDetails />} />
-          </Route>
+          <Route path="/AllCoffee" element={<AllCoffee />} />
+            {/* <Route path="CoffeeDetails/:id" element={<CoffeeDetails />} /> */}
+          <Route path="CoffeeDetails" element={<CoffeeDetails />} />
+          <Route path="/AllRoastery" element={<AllRoastery />} />
+          <Route path="AllRoastery/:id" element={<RoasteryDetails />} />
 
           <Route path="/MyPage" element={<MyPage />}>
             <Route path="SubscriptionSchedule" element={<Subscribe />} />
