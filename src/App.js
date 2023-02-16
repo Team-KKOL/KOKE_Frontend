@@ -19,8 +19,11 @@ import MyInformation from "./subPages/MyInformation";
 import CoffeeDetails from "./pages/CoffeeDetails";
 import RoasteryDetails from "./pages/RoasteryDetails";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
+import { useState } from "react";
 
-function App() {
+function App(props) {
+  const [products, setProducts] = useState(props.id);
+
   return (
     <div className="App">
       <Header />
@@ -33,9 +36,14 @@ function App() {
         <Route path="/AllCoffee" element={<AllCoffee />}>
           <Route path="CoffeeDetails/:id" element={<CoffeeDetails />} />
         </Route>
-        <Route path="/AllRoastery" element={<AllRoastery />}>
-          <Route path="AllRoastery/:id" element={<RoasteryDetails />} />
-        </Route>
+        <Route
+          path="/AllRoastery"
+          element={<AllRoastery products={products} />}
+        />
+        <Route
+          path="/AllRoastery/:id"
+          element={<RoasteryDetails products={products} />}
+        />
 
         <Route path="/MyPage" element={<MyPage />}>
           <Route path="SubscriptionSchedule" element={<Subscribe />} />

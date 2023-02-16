@@ -119,7 +119,7 @@ export default function Login() {
   const onSubmitLogin = () => {
     axios({
       method: "POST",
-      url: "http://13.125.91.209:9002/login",
+      url: "http://13.125.126.9:9002/login",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",

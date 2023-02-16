@@ -1,4 +1,4 @@
-/*My 주문내영 */
+/*My 주문내역 */
 import React, { useState } from "react";
 import styled from "styled-components";
 

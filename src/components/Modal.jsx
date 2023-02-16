@@ -68,7 +68,7 @@ export default function Modal({ setModal }) {
     });
     axios({
       method: "GET",
-      url: "http://13.125.91.209:9002/logoutUser",
+      url: "http://13.125.126.9:9002/logoutUser",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
