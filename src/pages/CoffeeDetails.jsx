@@ -8,12 +8,12 @@ import ProductTab from '../subPages/ProductTab';
 const Backgraund = styled.div`
   width: 100vw;
   height: 100%;
-  background-color: ${({theme}) => theme.colors.Beige};
+  background-color: ${({theme}) => theme.colors.lightBeige};
 `
 
 const Outer = styled.div`
   width: ${({ theme }) => theme.size.mainSize};
-  padding: 50px 107px 0;
+  padding: 50px 0 0 80px ;
   box-sizing: border-box;
   margin: 0 auto;
   display: flex;
@@ -69,7 +69,9 @@ const Roastery = styled.div`
 
 const TabContainerBox = styled.div``
 
-const OptionsContainerBox = styled.div``
+const OptionsContainerBox = styled.div`
+  width: auto;
+`
 
 
 export default function CoffeeDetails() {

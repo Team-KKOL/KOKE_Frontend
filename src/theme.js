@@ -1,6 +1,7 @@
 // color 정의
 const colors = {
   gray: "#707070",
+  orange: "#e4794d",
   brown: "#b4712f",
   Bbrown: "#DEA462",
   darkBrown: "#60370f",

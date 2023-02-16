@@ -1,4 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.css'
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./pages/Main";

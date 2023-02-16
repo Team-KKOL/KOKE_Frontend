@@ -11,3 +11,5 @@
 - npm install react-player
 - npm install swiper
 - npm install axios
+- npm i --save react-select
+
