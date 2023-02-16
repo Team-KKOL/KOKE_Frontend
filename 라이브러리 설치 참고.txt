@@ -4,3 +4,5 @@
 - 리액트 리덕스
 - reduxjs/toolkit react-redux
 - 리액트 아이콘
+- axios
+- sass
