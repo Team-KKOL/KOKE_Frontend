@@ -427,7 +427,6 @@ export default function OptionsBox() {
                 style={{ width:"95%", fontSize:"14px" }}
                 onChange={onChange} 
                 name={'cycle'}  
-                // style={ inputs.PurchaseMethod === "구독하기" ? { color: "black"} : { color: "white"}} 
               >
                 {weekList.map((option) => (
                       <option
