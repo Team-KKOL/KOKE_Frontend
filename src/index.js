@@ -7,14 +7,24 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import "swiper/css/bundle";
+// import "./styles.css";
+import "./components/MainImg.modul.css";
+import ScrollToTop from "./ScrollToTop";
+// import { ThemeProvider } from "styled-components";
+// import theme from "./theme";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {/* <ThemeProvider theme={theme}> */}
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </Provider>
+    {/* </ThemeProvider> */}
   </React.StrictMode>
 );
 

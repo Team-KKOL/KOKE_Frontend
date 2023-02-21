@@ -1,4 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.css'
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./pages/Main";
@@ -23,11 +24,11 @@ import { useState } from "react";
 
 function App(props) {
   const [products, setProducts] = useState(props.id);
-
   return (
     <div className="App">
-      <Header />
-
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
       <Routes>
         <Route path="*" element={<div>없는 페이지</div>} />
         <Route path="/" element={<Main />} />
@@ -55,8 +56,8 @@ function App(props) {
           <Route path="MyInformation" element={<MyInformation />} />
         </Route>
       </Routes>
-
-      <Footer />
+        <Footer />
+      </ThemeProvider>
     </div>
   );
 }

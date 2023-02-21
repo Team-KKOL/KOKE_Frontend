@@ -4,5 +4,17 @@
 - 리액트 리덕스
 - reduxjs/toolkit react-redux
 - 리액트 아이콘
+<<<<<<< HEAD
 - axios
 - sass
+=======
+
+
+추가설치
+
+- npm install react-player
+- npm install swiper
+- npm install axios
+- npm i --save react-select
+
+>>>>>>> b5ec2acc8872842e160f33fb7d15c24b265877af
