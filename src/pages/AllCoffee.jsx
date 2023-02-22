@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Product from '../components/Product'
 import theme from '../theme'
@@ -6,6 +6,8 @@ import theme from '../theme'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useDispatch } from 'react-redux';
+import { unMainPage, unTopHeader } from '../store';
 
 const Backgraund = styled.div`
   width: 100vw;
@@ -77,6 +79,17 @@ const Products = styled.div`
 
 
 export default function AllCoffee() {
+
+  let dispatch = useDispatch(); 
+
+  useEffect(() => {
+    return () => {
+      dispatch(unTopHeader())
+      dispatch(unMainPage())
+    };
+  }, []);
+
+
   return (
     <Backgraund>
     <Outer>

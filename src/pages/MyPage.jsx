@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+
+import { useDispatch } from 'react-redux';
+import { unMainPage, unTopHeader } from '../store';
 
 const Main = styled.div`
   display: flex;
@@ -56,6 +59,14 @@ const Li = styled.li`
 `;
 
 export default function MyPage() {
+  
+  let dispatch = useDispatch(); 
+
+  useEffect(() => {
+      dispatch(unTopHeader())
+      dispatch(unMainPage())
+  }, []);
+
   return (
     <Main>
       <Category>

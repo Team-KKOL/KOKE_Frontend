@@ -26,7 +26,11 @@ body {
 .mySwiper {
     filter: grayscale(0.5); 
     width: 100vw;
-    height: calc(100vh - 70px - 15px);
+    height: 100vh;
+
+    /* height: calc(100vh - 70px - 15px);
+    padding-top: 85px;
+    box-sizing: content-box; */
 }
 
 .grayBox {

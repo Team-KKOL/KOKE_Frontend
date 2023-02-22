@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components';
 import OptionsBox from '../components/OptionsBox';
 import ProductTab from '../subPages/ProductTab';
+import { useDispatch } from 'react-redux';
+import { unMainPage, unTopHeader } from '../store';
 
 
 const Backgraund = styled.div`
@@ -77,6 +79,13 @@ const OptionsContainerBox = styled.div`
 export default function CoffeeDetails() {
 
   let {id} = useParams();
+
+  let dispatch = useDispatch(); 
+
+  useEffect(() => {
+      dispatch(unTopHeader())
+      dispatch(unMainPage())
+  }, []);
   
   return (
     <>

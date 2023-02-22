@@ -21,15 +21,32 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export default function Header() {
   let navigate = useNavigate();
 
+  // 로그인 상태 불러오기
   let User = useSelector((state) => {
     return state;
   });
   console.log(User.user);
 
+  // 메인페이지에서 스크롤 최상단에 위치했는지 구분 불러오기
+  let headerTop = useSelector((state) => {
+    return state.header;
+  });
+  // console.log(headerTop);
+
+  // 메인페이지와 아닌 페이지 구분 불러오기  
+  let mainPage = useSelector((state) => {
+    return state.page;
+  });
+  // console.log(mainPage);
+
+
   const Form_box = styled.div`
     display: flex;
     justify-content: space-between;
-    background-color: white;
+    /* background-color: white; */
+    background-color: ${headerTop === true ? 'transparent' : "white"};
+    border: ${headerTop === true && "2px solid #fff"};
+
     width: 250px;
     height: 40px;
     border-radius: 20px;
@@ -38,23 +55,38 @@ export default function Header() {
   `;
 
   const Button_search = styled.button`
+  
     background-color: transparent;
     border: none;
   `;
 
+ 
   const Search_form = styled.input`
     background-color: transparent;
     width: 200px;
     border-color: transparent;
     outline: none;
+    color: ${headerTop === true ? 'white' : '#333'};
+    ::placeholder,
+    ::-webkit-input-placeholder {
+      color: ${headerTop === true ? 'white' : 'grey'};
+    }
+    /* :-ms-input-placeholder {
+      color: red;
+    } */
   `;
 
   return (
     <Navbar
       // expand="lg"
       variant="dark"
-      sticky="top"
-      style={{ backgroundColor: "#B4712F", height: "70px", minWidth: "850px", width: "100vw" }}
+      sticky={mainPage === false && "top"}
+      // sticky="top"
+      fixed={mainPage === true && "top"}
+      // fixed="top"
+      // mainPage === true ? fixed="top" : sticky="top"
+
+      style={{ backgroundColor: headerTop === true ? "transparent" : "#B4712F", height: "70px", minWidth: "850px", width: "100vw", transition: "0.4s" }}
     >
       <Container fluid style={{ maxWidth: "1276px" }}>
         <Navbar.Brand
@@ -108,11 +140,12 @@ export default function Header() {
               <Search_form
                 type="search"
                 placeholder="Search"
+                placeholderTextColor= "#fff"
                 // className="me-2 search_form"
                 aria-label="Search"
               />
               <Button_search>
-                <FaSearch style={{ color: "#B4712F", marginTop: "-6px" }} />
+                <FaSearch style={{ color: headerTop === true ? "#fff" : "#B4712F", marginTop: "-6px" }} />
               </Button_search>
             </Form_box>
           </Form>

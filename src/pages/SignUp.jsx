@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Input from "../components/Input";
 import Styles from "./SignUp.module.scss";
 import styled, { css } from "styled-components";
+
+import { useDispatch } from "react-redux";
+import { unMainPage, unTopHeader } from "../store";
 
 const StyledSpan = css`
   text-align: left;
@@ -37,6 +40,14 @@ const StyledPhone = styled.span`
 `;
 
 export default function SignUp() {
+
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(unTopHeader());
+    dispatch(unMainPage());
+  }, []);
+
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

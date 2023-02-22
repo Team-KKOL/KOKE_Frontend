@@ -4,10 +4,21 @@ import Input from "../components/Input";
 import Styles from "./Login.module.scss";
 import { Link } from "react-router-dom";
 
+import { useDispatch } from 'react-redux';
+import { unMainPage, unTopHeader } from '../store';
+
 export default function Login() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [isSelected, setSelected] = useState(false);
+  
+  let dispatch = useDispatch(); 
+
+  useEffect(() => {
+      dispatch(unTopHeader())
+      dispatch(unMainPage())
+  }, []);
+
 
   // let accessToken = "";
   // localStorage.getItem("accessToken").then((token) => {

@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
+import { useDispatch } from "react-redux";
+import { unMainPage, unTopHeader } from "../store";
+
 const Grid = styled.div`
   background-color: #faf7e8;
   width: 100vw;
@@ -50,6 +53,13 @@ export default function RoasteryDetails(props) {
   const [table, setTable] = useState({});
 
   const product = props.products;
+
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(unTopHeader());
+    dispatch(unMainPage());
+  }, []);
 
   // useEffect(() => {
   //   if (table.length === 0) {

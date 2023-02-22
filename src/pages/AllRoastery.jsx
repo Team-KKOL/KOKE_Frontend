@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
 
+import { useDispatch } from 'react-redux';
+import { unMainPage, unTopHeader } from '../store';
+
 const Grid = styled.div`
   background-color: #faf7e8;
   width: 100vw;
@@ -73,6 +76,13 @@ const ButtonGroup = styled.div`
 
 export default function AllRoastery(props) {
   const [roastery, setRoastery] = useState([]);
+
+  let dispatch = useDispatch(); 
+
+  useEffect(() => {
+      dispatch(unTopHeader())
+      dispatch(unMainPage())
+  }, []);
 
   useEffect(() => {
     if (roastery.length === 0) {
