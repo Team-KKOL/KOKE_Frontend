@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useDispatch } from 'react-redux';
 import { unMainPage, unTopHeader } from '../store';
+import { Link, Navigate } from 'react-router-dom';
 
 const Backgraund = styled.div`
   width: 100vw;
@@ -108,9 +109,15 @@ export default function AllCoffee() {
               <Col><Product/></Col>
             </Row>
           </Container> */}
-          <Product/>
-          <Product/>
-          <Product/>
+          <Link to="/CoffeeDetails">
+            <Product />
+          </Link>  
+          <Link to="/CoffeeDetails">
+            <Product />
+          </Link>  
+          <Link to="/CoffeeDetails">
+            <Product />
+          </Link>  
         </Products>
       </ContainerBox>
     </Outer>
