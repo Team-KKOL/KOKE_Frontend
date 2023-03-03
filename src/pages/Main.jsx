@@ -15,10 +15,10 @@ export default function Main() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    dispatch(TopHeader())
+    dispatch(mainPage())
     return () => {
       window.removeEventListener("scroll", handleScroll); //clean up
-      dispatch(TopHeader())
-      dispatch(mainPage())
     };
   }, []);
 
