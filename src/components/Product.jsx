@@ -28,6 +28,7 @@ const Decaf = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
+    color: #333;
 `
 
 const TextOuter = styled.div`
@@ -91,7 +92,12 @@ function Product() {
                 <RoasteryLogo><img src='' alt='로스터리 로고' /></RoasteryLogo>
                 <RoasteryName>{"디카 커피랩"}</RoasteryName>
             </RoasteryBox>
-            <Wish><CiHeart/>찜하기</Wish>
+            <Wish 
+            onClick={(e) => {
+                e.preventDefault();
+                alert("찜목록에 상품 추가 코드 구현하기")
+            }}
+            ><CiHeart/>찜하기</Wish>
         </TextOuter>
     </ProductBox>
   )

@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import "./CelebSlider.modul.css";
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 import { ImQuotesLeft } from "react-icons/im";
 import { MainTitle, SubTitle } from "./MainTitle";
@@ -93,10 +93,15 @@ export default function CelebSlider(cardList) {
 
       <Swiper 
         navigation={true}
-        modules={[Pagination, Navigation]}
         slidesPerView={1}
         spaceBetween={20}
         loop={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        speed={5000}
+        modules={[Autoplay, Pagination, Navigation]}
         breakpoints={{
           "@0.00": {
             slidesPerView: 1,

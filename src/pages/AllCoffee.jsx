@@ -63,8 +63,9 @@ const ContainerBox = styled.div`
 const OptionBox = styled.div`
   flex: 1;
 
-  // border: 1px solid black;
+  border: 1px solid black;
   height: 100vh;
+  margin-right: 20px;
 `
 
 const Products = styled.div`
@@ -75,7 +76,9 @@ const Products = styled.div`
 
   // border: 1px solid black;
   height: 100vh;
+
 `
+ 
 
 
 
