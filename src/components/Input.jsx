@@ -8,7 +8,7 @@ const StyledContext = styled.div`
 const StyledInput = styled.input`
   border-radius: 8px;
   border: 1px solid #949494;
-  width: 100%;
+  width: 28vw;
   height: 3vh;
   margin-bottom: 1rem;
 `;
@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
   width: 100%;
   height: 3vh;
   font-size: 20px;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.8rem;
   text-align: left;
 `;
 // const StyledButton = styled.button``;

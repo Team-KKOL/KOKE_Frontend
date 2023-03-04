@@ -67,7 +67,7 @@ export default function SignUp() {
   const onSubmit = () => {
     axios({
       method: "POST",
-      url: "http://13.125.126.9:9002/signUp",
+      url: "http://15.165.242.95:9002/signUp",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -93,7 +93,7 @@ export default function SignUp() {
   const onCheckDuplicateId = () => {
     axios({
       method: "GET",
-      url: `http://13.125.126.9:9002/check/id`,
+      url: `http://15.165.242.95:9002/check/id`,
       params: { userId: id },
       headers: {
         Accept: "application/json",
@@ -113,7 +113,7 @@ export default function SignUp() {
   const onCheckDuplicateEmail = () => {
     axios({
       method: "GET",
-      url: `http://13.125.126.9:9002/check/email`,
+      url: `http://15.165.242.95:9002/check/email`,
       params: { email: email },
       headers: {
         Accept: "application/json",
