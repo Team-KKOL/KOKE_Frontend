@@ -9,6 +9,8 @@ const Main = styled.div`
   display: flex;
   height: 100vh;
   background-color: #fffef8;
+  margin: 0xp;
+  padding: 0px;
 `;
 
 const Category = styled.div`

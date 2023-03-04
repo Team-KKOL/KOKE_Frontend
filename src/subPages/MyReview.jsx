@@ -7,6 +7,8 @@ const Grid = styled.div`
   background-color: #fffef8;
   height: 100vh;
   display: block;
+  margin: 0px;
+  padding: 0px;
 `;
 
 const MainTitle = styled.li`

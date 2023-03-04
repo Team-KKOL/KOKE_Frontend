@@ -91,7 +91,7 @@ export default function Login() {
   const refreshSignin = () => {
     axios({
       method: "POST",
-      url: "http://192.168.10.54:8500/login/auto",
+      url: "http://15.165.242.95:9002/login/auto",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -130,7 +130,7 @@ export default function Login() {
   const onSubmitLogin = () => {
     axios({
       method: "POST",
-      url: "http://13.125.126.9:9002/login",
+      url: "http://15.165.242.95:9002/login",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",

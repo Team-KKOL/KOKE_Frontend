@@ -88,7 +88,7 @@ export default function AllRoastery(props) {
     if (roastery.length === 0) {
       axios({
         method: "GET",
-        url: `http://13.125.126.9:9002/roastery?sort=NAME`,
+        url: `http://15.165.242.95:9002/roastery?sort=NAME`,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json;charset=UTF-8;",
@@ -110,7 +110,7 @@ export default function AllRoastery(props) {
   const onChangeName = () => {
     axios({
       method: "GET",
-      url: `http://13.125.126.9:9002/roastery?sort=NAME`,
+      url: `http://15.165.242.95:9002/roastery?sort=NAME`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -131,7 +131,7 @@ export default function AllRoastery(props) {
   const onChangeRecent = () => {
     axios({
       method: "GET",
-      url: `http://13.125.126.9:9002/roastery?sort=RECENT`,
+      url: `http://15.165.242.95:9002/roastery?sort=RECENT`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
