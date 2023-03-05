@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
 
-import { useDispatch } from 'react-redux';
-import { unMainPage, unTopHeader } from '../store';
+import { useDispatch } from "react-redux";
+import { unMainPage, unTopHeader } from "../store";
+
+import { Link, Navigate } from "react-router-dom";
 
 const Grid = styled.div`
   background-color: #faf7e8;
@@ -53,17 +55,22 @@ const RoasteryImg = styled.img`
   border-radius: 50%;
 `;
 const RoasteryName = styled.span`
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
 `;
 
 const StyledButton = styled.button`
+  &:hover {
+    color: #ffffff;
+    background-color: #b4712f;
+  }
   border: 1px solid #b4712f;
   border-radius: 20px;
   width: 100px;
   height: 40px;
-  background-color: #b4712f;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #b4712f;
   margin-right: 10px;
   font-weight: bold;
   float: right;
@@ -77,11 +84,11 @@ const ButtonGroup = styled.div`
 export default function AllRoastery(props) {
   const [roastery, setRoastery] = useState([]);
 
-  let dispatch = useDispatch(); 
+  let dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(unTopHeader())
-      dispatch(unMainPage())
+    dispatch(unTopHeader());
+    dispatch(unMainPage());
   }, []);
 
   useEffect(() => {
@@ -124,7 +131,7 @@ export default function AllRoastery(props) {
       })
       .catch((err) => {
         console.log("login" + err);
-        alert("이미 존재하는 ID입니다.");
+        alert("로딩에 실패하였습니다.");
       });
   };
 
@@ -156,18 +163,20 @@ export default function AllRoastery(props) {
         <StyledButton onClick={onChangeName}>이름순</StyledButton>
         <StyledButton onClick={onChangeRecent}>최신등록순</StyledButton>
       </ButtonGroup>
-      <Main>
-        {roastery.map(function (arr, idx) {
-          return (
-            <RoasteryTage href={`AllRoastery:${arr.id}`}>
-              <Roastery key={idx}>
-                <RoasteryImg src={arr.logoImgUrl} />
-                <RoasteryName>{arr.roasteryNm}</RoasteryName>
-              </Roastery>
-            </RoasteryTage>
-          );
-        })}
-      </Main>
+      <Link to="/RoasteryDetails">
+        <Main>
+          {roastery.map(function (arr, idx) {
+            return (
+              <RoasteryTage href={`AllRoastery:${arr.id}`}>
+                <Roastery key={idx}>
+                  <RoasteryImg src={arr.logoImgUrl} />
+                  <RoasteryName>{arr.roasteryNm}</RoasteryName>
+                </Roastery>
+              </RoasteryTage>
+            );
+          })}
+        </Main>
+      </Link>
     </Grid>
   );
 }
