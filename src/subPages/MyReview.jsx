@@ -1,3 +1,4 @@
+/*MY리뷰 */
 import React, { useState } from "react";
 import styled from "styled-components";
 import ModalReviewModify from "../components/ModalReviewModify";
@@ -6,6 +7,7 @@ import { ImStarFull } from "react-icons/im";
 const Grid = styled.div`
   background-color: #fffef8;
   height: 100vh;
+  width: 88vw;
   display: block;
   margin: 0px;
   padding: 0px;
@@ -19,7 +21,6 @@ const MainTitle = styled.li`
 `;
 
 const Main = styled.div`
-  width: 100vw;
   height: 23vh;
   border-radius: 15px;
   display: block;
@@ -52,9 +53,9 @@ const ReviewDate = styled.p`
 `;
 const CardText = styled.div`
   border: 1px solid #949494;
+  width: 100%;
   display: flex;
   border-radius: 5px;
-  width: 104.5%;
   background-color: #ffffff;
   margin: 20px 0px 0px -29px;
   padding: 15px 30px 5px 30px;

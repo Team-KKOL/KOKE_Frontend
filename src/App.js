@@ -13,7 +13,6 @@ import MyPage from "./pages/MyPage";
 import Subscribe from "./subPages/Subscribe";
 import MyCart from "./subPages/MyCart";
 import ProductOfInterest from "./subPages/ProductOfInterest";
-import RecentlyViewed from "./subPages/RecentlyViewed";
 import RoasteryOfInterest from "./subPages/RoasteryOfInterest";
 import MyReview from "./subPages/MyReview";
 import MyInformation from "./subPages/MyInformation";
@@ -57,7 +56,6 @@ function App() {
             <Route path="SubscriptionSchedule" element={<Subscribe />} />
             <Route path="MyCart" element={<MyCart />} />
             <Route path="ProductOfInterest" element={<ProductOfInterest />} />
-            <Route path="RecentlyViewedProducts" element={<RecentlyViewed />} />
             <Route path="roasteryOfInterest" element={<RoasteryOfInterest />} />
             <Route path="MyReview" element={<MyReview />} />
             <Route path="MyInformation" element={<MyInformation />} />

@@ -2,28 +2,28 @@ import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
-import { useDispatch } from 'react-redux';
-import { unMainPage, unTopHeader } from '../store';
+import { useDispatch } from "react-redux";
+import { unMainPage, unTopHeader } from "../store";
 
 const Main = styled.div`
   display: flex;
   height: 100vh;
+  width: 100vw;
   background-color: #fffef8;
-  margin: 0xp;
+  margin: 0px;
   padding: 0px;
 `;
 
 const Category = styled.div`
+  margin: 0px;
   border-right: 2px solid #d7ba28;
   margin-top: 100px;
-  width: 200px;
+  margin-left: 50px;
+  width: 12vw;
   height: 500px;
   text-decoration: none;
   flex-shrink: 0;
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  right: 0; */
+  min-width: 213px;
 `;
 
 const Title = styled.div`
@@ -61,12 +61,11 @@ const Li = styled.li`
 `;
 
 export default function MyPage() {
-  
-  let dispatch = useDispatch(); 
+  let dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(unTopHeader())
-      dispatch(unMainPage())
+    dispatch(unTopHeader());
+    dispatch(unMainPage());
   }, []);
 
   return (
@@ -87,11 +86,6 @@ export default function MyPage() {
         <ul>
           <Li>
             <Detail href="/MyPage/ProductOfInterest">찜 상품</Detail>
-          </Li>
-        </ul>
-        <ul>
-          <Li>
-            <Detail href="/MyPage/RecentlyViewedProducts">최근 본 상품</Detail>
           </Li>
         </ul>
         <ul>

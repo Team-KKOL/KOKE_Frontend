@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Modal from "../components/Modal";
+import ModalAdress from "../components/ModalAdress";
 
 const Grid = styled.div`
   background-color: #fffef8;
   height: 100vh;
+  width: 88vw;
 `;
 
 const fontWeight = css`
   font-weight: bold;
 `;
 const StyledButton = css`
-  width: 45%;
+  width: 30vw;
   ${fontWeight}
   border-radius: 5px;
   height: 40px;
@@ -21,7 +23,6 @@ const StyledButton = css`
 `;
 
 const Main = styled.div`
-  width: 100vw;
   height: 23vh;
   border-radius: 15px;
   display: block;
@@ -47,6 +48,7 @@ const StyledLabel = styled.label`
 `;
 const StyledInput = styled.input`
   width: 30%;
+  margin-top: 6px;
   margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #949494;
@@ -72,11 +74,12 @@ const ChangeBtn = styled.button`
   ${StyledButton}
   display:flex;
   justify-content: space-between;
-  padding-top: 6px;
+  padding-top: 7px;
 `;
 const ChangeText = styled.p`
   color: #ffffff;
   text-align: right;
+  padding-right: 6px;
 `;
 
 const MyBtn = styled.button`
@@ -91,10 +94,15 @@ const MyBtn = styled.button`
 
 export default function MyInformation() {
   const [modal, setModal] = useState(false);
+  const [modalAdress, setModalAdress] = useState(false);
 
   const showModal = () => {
     setModal(true);
   };
+  const showModalAdress = () => {
+    setModalAdress(true);
+  };
+
   return (
     <Grid>
       <Main>
@@ -110,11 +118,12 @@ export default function MyInformation() {
           <SaveBtn>저장</SaveBtn>
         </StyledDiv>
         <StyledLabel>배송지 정보</StyledLabel>
-        <AdressBtn>주소 등록하기</AdressBtn>
+        <AdressBtn onClick={showModalAdress}>주소 등록하기</AdressBtn>
+        {modalAdress && <ModalAdress setModalAdress={setModalAdress} />}
         <StyledLabel>사장님 계정으로 변환</StyledLabel>
 
         <ChangeBtn>
-          사장님이시라면<ChangeText>{">"}</ChangeText>
+          사장님이시라면<ChangeText>{"> "}</ChangeText>
         </ChangeBtn>
         <MyBtn marginRight="10px" onClick={showModal}>
           로그아웃

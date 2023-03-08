@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export default function ProductOfInterest() {
   const Grid = styled.div`
-    width: 100vw;
+    width: 88vw;
     height: 23vh;
     border-radius: 15px;
     display: block;

@@ -3,22 +3,22 @@ import axios from "axios";
 import Input from "../components/Input";
 import Styles from "./Login.module.scss";
 import { Link } from "react-router-dom";
+import { api } from "../api";
 
-import { useDispatch } from 'react-redux';
-import { unMainPage, unTopHeader } from '../store';
+import { useDispatch } from "react-redux";
+import { unMainPage, unTopHeader } from "../store";
 
 export default function Login() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [isSelected, setSelected] = useState(false);
-  
-  let dispatch = useDispatch(); 
+
+  let dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(unTopHeader())
-      dispatch(unMainPage())
+    dispatch(unTopHeader());
+    dispatch(unMainPage());
   }, []);
-
 
   // let accessToken = "";
   // localStorage.getItem("accessToken").then((token) => {
@@ -91,7 +91,7 @@ export default function Login() {
   const refreshSignin = () => {
     axios({
       method: "POST",
-      url: "http://15.165.242.95:9002/login/auto",
+      url: `${api}/login/auto`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -130,7 +130,7 @@ export default function Login() {
   const onSubmitLogin = () => {
     axios({
       method: "POST",
-      url: "http://15.165.242.95:9002/login",
+      url: `${api}/login`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",

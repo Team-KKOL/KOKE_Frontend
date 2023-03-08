@@ -1,3 +1,4 @@
+/*관심 로스터리 */
 import React from "react";
 import styled from "styled-components";
 
@@ -19,6 +20,7 @@ const Title = styled.li`
 `;
 
 const Rostery = styled.div`
+  text-align: center;
   background-color: #ffffff;
   height: 250px;
   width: 30%;

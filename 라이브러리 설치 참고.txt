@@ -15,3 +15,4 @@
 - npm install swiper
 - npm install axios
 - npm i --save react-select
+- npm install react-daum-postcode

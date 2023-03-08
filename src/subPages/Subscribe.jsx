@@ -5,7 +5,8 @@ import styled from "styled-components";
 
 const Grid = styled.div`
   background-color: #fffef8;
-  height: 100vh;
+  height: auto;
+  width: 88vw;
 `;
 
 const MainTitle = styled.li`
@@ -16,13 +17,11 @@ const MainTitle = styled.li`
 `;
 
 const Main = styled.div`
-  width: 100vw;
   height: 23vh;
-  /* border: 1px solid #949494; */
   border-radius: 15px;
   display: flex;
   padding: 30px 30px 30px 30px;
-  margin: 30px 100px 100px 50px;
+  margin: 30px 50px 50px 50px;
   background-color: #faf7e8;
   min-width: 300px;
   max-width: 1432px;

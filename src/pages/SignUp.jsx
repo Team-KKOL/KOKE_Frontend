@@ -3,6 +3,7 @@ import axios from "axios";
 import Input from "../components/Input";
 import Styles from "./SignUp.module.scss";
 import styled, { css } from "styled-components";
+import { api } from "../api";
 
 import { useDispatch } from "react-redux";
 import { unMainPage, unTopHeader } from "../store";
@@ -40,7 +41,6 @@ const StyledPhone = styled.span`
 `;
 
 export default function SignUp() {
-
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function SignUp() {
   const onSubmit = () => {
     axios({
       method: "POST",
-      url: "http://15.165.242.95:9002/signUp",
+      url: `${api}/signUp`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -104,7 +104,7 @@ export default function SignUp() {
   const onCheckDuplicateId = () => {
     axios({
       method: "GET",
-      url: `http://15.165.242.95:9002/check/id`,
+      url: `${api}/check/id`,
       params: { userId: id },
       headers: {
         Accept: "application/json",
@@ -124,7 +124,7 @@ export default function SignUp() {
   const onCheckDuplicateEmail = () => {
     axios({
       method: "GET",
-      url: `http://15.165.242.95:9002/check/email`,
+      url: `${api}/check/email`,
       params: { email: email },
       headers: {
         Accept: "application/json",

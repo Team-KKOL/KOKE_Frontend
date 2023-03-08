@@ -6,15 +6,16 @@ const Main = styled.div`
   align-content: center;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
-  height: 350px;
-  width: 30%;
+  box-sizing: border-box;
+  width: 270px;
+  text-align: center;
 `;
 const CardImg = styled.div`
   background-color: #d9d9d9;
 `;
 const StyledImg = styled.img`
-  width: 100px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
 `;
 const CardText = styled.div`
   background-color: #ffffff;
@@ -30,16 +31,15 @@ const Price = styled.p`
   font-weight: bold;
 `;
 const CardFooter = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
 `;
 const RosteryImg = styled.img`
   width: 30px;
   height: 30px;
-  margin-right: 10px;
 `;
 const RosteryName = styled.p`
+  padding-top: 4px;
   font-weight: bold;
 `;
 export default function Item(props) {

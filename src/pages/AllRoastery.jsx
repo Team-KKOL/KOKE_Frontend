@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { api } from "../api";
 
 import { useDispatch } from "react-redux";
 import { unMainPage, unTopHeader } from "../store";
@@ -95,7 +96,7 @@ export default function AllRoastery(props) {
     if (roastery.length === 0) {
       axios({
         method: "GET",
-        url: `http://15.165.242.95:9002/roastery?sort=NAME`,
+        url: `${api}/roastery?sort=NAME`,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json;charset=UTF-8;",
@@ -109,7 +110,7 @@ export default function AllRoastery(props) {
         })
         .catch((err) => {
           console.log("login" + err);
-          alert("이미 존재하는 ID입니다.");
+          alert("로딩에 실패하였습니다.");
         });
     }
   }, [roastery]);
@@ -117,7 +118,7 @@ export default function AllRoastery(props) {
   const onChangeName = () => {
     axios({
       method: "GET",
-      url: `http://15.165.242.95:9002/roastery?sort=NAME`,
+      url: `${api}/roastery?sort=NAME`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -138,7 +139,7 @@ export default function AllRoastery(props) {
   const onChangeRecent = () => {
     axios({
       method: "GET",
-      url: `http://15.165.242.95:9002/roastery?sort=RECENT`,
+      url: `${api}/roastery?sort=RECENT`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
