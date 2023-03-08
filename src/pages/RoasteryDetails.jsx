@@ -48,8 +48,6 @@ const Awards = styled.div`
   padding: 3px 8px 3px 8px;
   margin: 5px 0px 5px 0px;
   background-color: #fdfaf0;
-  width: 120px;
-  height: 30px;
 `;
 const Title = styled.h2`
   font-weight: bold;
@@ -119,7 +117,7 @@ export default function RoasteryDetails(props) {
     if (table.length === 0) {
       axios({
         method: "GET",
-        url: `https://api.kkol.store:9002/roastery/16764500616357df65`,
+        url: `https://api.kkol.store:9002/roastery/16782627628992beb4`,
         // params: { id: "16764500616357df65" },
         headers: {
           Accept: "application/json",
