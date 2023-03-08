@@ -8,7 +8,6 @@ import styled from "styled-components";
 import { FiInstagram } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { FiPaperclip } from "react-icons/fi";
-import { api } from "../api";
 
 import { useDispatch } from "react-redux";
 import { unMainPage, unTopHeader } from "../store";
@@ -120,7 +119,7 @@ export default function RoasteryDetails(props) {
     if (table.length === 0) {
       axios({
         method: "GET",
-        url: `${api}/roastery/16764500616357df65`,
+        url: `https://api.kkol.store:9002/roastery/16764500616357df65`,
         // params: { id: "16764500616357df65" },
         headers: {
           Accept: "application/json",

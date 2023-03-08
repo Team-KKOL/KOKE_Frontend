@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { api } from "../api";
 
 import { useDispatch } from "react-redux";
 import { unMainPage, unTopHeader } from "../store";
@@ -96,7 +95,7 @@ export default function AllRoastery(props) {
     if (roastery.length === 0) {
       axios({
         method: "GET",
-        url: `${api}/roastery?sort=NAME`,
+        url: `https://api.kkol.store:9002/roastery?sort=NAME`,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json;charset=UTF-8;",
@@ -118,7 +117,7 @@ export default function AllRoastery(props) {
   const onChangeName = () => {
     axios({
       method: "GET",
-      url: `${api}/roastery?sort=NAME`,
+      url: `https://api.kkol.store:9002/roastery?sort=NAME`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -139,7 +138,7 @@ export default function AllRoastery(props) {
   const onChangeRecent = () => {
     axios({
       method: "GET",
-      url: `${api}/roastery?sort=RECENT`,
+      url: `https://api.kkol.store:9002/roastery?sort=RECENT`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",

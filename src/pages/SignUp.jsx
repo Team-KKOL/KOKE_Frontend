@@ -3,7 +3,6 @@ import axios from "axios";
 import Input from "../components/Input";
 import Styles from "./SignUp.module.scss";
 import styled, { css } from "styled-components";
-import { api } from "../api";
 
 import { useDispatch } from "react-redux";
 import { unMainPage, unTopHeader } from "../store";
@@ -78,7 +77,7 @@ export default function SignUp() {
   const onSubmit = () => {
     axios({
       method: "POST",
-      url: `${api}/signUp`,
+      url: `https://api.kkol.store:9002/signUp`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8;",
@@ -104,7 +103,7 @@ export default function SignUp() {
   const onCheckDuplicateId = () => {
     axios({
       method: "GET",
-      url: `${api}/check/id`,
+      url: `https://api.kkol.store:9002/check/id`,
       params: { userId: id },
       headers: {
         Accept: "application/json",
@@ -124,7 +123,7 @@ export default function SignUp() {
   const onCheckDuplicateEmail = () => {
     axios({
       method: "GET",
-      url: `${api}/check/email`,
+      url: `https://api.kkol.store:9002/check/email`,
       params: { email: email },
       headers: {
         Accept: "application/json",
