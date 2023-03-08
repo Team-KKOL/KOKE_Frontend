@@ -30,7 +30,8 @@ export default function CelebSlider(cardList) {
     // 슬라이더 데이터 조회
       axios({
         method: "get",
-        url: "http://15.165.242.95:9002/celebrity",
+        // url: "http://15.165.242.95:9002/celebrity",
+        url: "https://api.kkol.store:9002/celebrity",
         // data: JSON.stringify(searchData),
         headers: {
           "Content-Type": "application/json; charset=utf-8",
@@ -53,6 +54,8 @@ export default function CelebSlider(cardList) {
         })
         .catch((err) => {
           console.log(err);
+          alert(err.message);
+          alert(err.name);
         });
       }
     

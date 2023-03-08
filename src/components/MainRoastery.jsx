@@ -83,7 +83,8 @@ export default function MainRoastery() {
     if (roastery.length === 0) {
       axios({
         method: "get",
-        url: "http://15.165.242.95:9002/roastery/top4",
+        // url: "http://15.165.242.95:9002/roastery/top4",
+        url: "https://api.kkol.store:9002/roastery/top4",
         // timeout: 5000,
         headers: {
           // Accept: "application/json",
@@ -99,6 +100,8 @@ export default function MainRoastery() {
         })
         .catch((err) => {
           console.log(err);
+          alert(err.message);
+          // alert(err.name);
         });
     }
   }, [roastery]);
