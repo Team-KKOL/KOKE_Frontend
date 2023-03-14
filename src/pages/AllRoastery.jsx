@@ -163,20 +163,22 @@ export default function AllRoastery(props) {
         <StyledButton onClick={onChangeName}>이름순</StyledButton>
         <StyledButton onClick={onChangeRecent}>최신등록순</StyledButton>
       </ButtonGroup>
-      <Link to="/RoasteryDetails">
-        <Main>
-          {roastery.map(function (arr, idx) {
-            return (
+      {/* <Link to="/RoasteryDetails"> */}
+      <Main>
+        {roastery.map(function (arr, idx) {
+          return (
+            <Link to={`/AllRoastery/${arr.id}`}>
               <RoasteryTage href={`AllRoastery:${arr.id}`}>
                 <Roastery key={idx}>
                   <RoasteryImg src={arr.logoImgUrl} />
                   <RoasteryName>{arr.roasteryNm}</RoasteryName>
                 </Roastery>
               </RoasteryTage>
-            );
-          })}
-        </Main>
-      </Link>
+            </Link>
+          );
+        })}
+      </Main>
+      {/* </Link> */}
     </Grid>
   );
 }

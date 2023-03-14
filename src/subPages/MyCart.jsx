@@ -92,7 +92,7 @@ export default function MyCart() {
           <DateName>배송완료</DateName>
           <Date>2022.00.00</Date>
           <ReviewBtn>리뷰쓰기</ReviewBtn>
-          <RemoveBtn>삭제</RemoveBtn>
+          <RemoveBtn>취소</RemoveBtn>
         </CardDate>
       </Main>
     </Grid>
