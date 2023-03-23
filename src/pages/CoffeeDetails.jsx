@@ -19,12 +19,12 @@ const Backgraund = styled.div`
 
 const Outer = styled.div`
   width: ${({ theme }) => theme.size.mainSize};
-  padding: 50px 0 0 80px ;
+  padding: 80px 0 80px 80px ;
   box-sizing: border-box;
   margin: 0 auto;
   display: flex;
 
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 `
 
 const MainContainer = styled.div`
@@ -32,7 +32,7 @@ const MainContainer = styled.div`
   padding: 0 70px;
 
 
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 `
 
 const ProductImgBox = styled.div`
@@ -40,7 +40,7 @@ const ProductImgBox = styled.div`
   margin: 0 auto;
   text-align: center;
 
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 `
 
 const ImgBox = styled.div`
