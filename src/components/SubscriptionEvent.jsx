@@ -55,7 +55,7 @@ export default function SubscriptionEvent() {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
            <IconOuterBlock>
             <IconBlock>
-              <FcElectricity
+              <FcElectricity className="arrow"
                 style={{ fontSize: "120px", color: "brown" }}
               />
             </IconBlock>

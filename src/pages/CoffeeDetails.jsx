@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components';
 import OptionsBox from '../components/OptionsBox';
 import ProductTab from '../subPages/ProductTab';
 import { useDispatch } from 'react-redux';
 import { unMainPage, unTopHeader } from '../store';
+import OptionsCKmodal from '../components/OptionsCKmodal';
+
+import Button from 'react-bootstrap/Button';
+
 
 
 const Backgraund = styled.div`
@@ -86,6 +90,27 @@ export default function CoffeeDetails() {
       dispatch(unTopHeader())
       dispatch(unMainPage())
   }, []);
+
+  const [optionCKmodal, setOptionCKModal] = useState(false);
+
+  const optionAllCK = useCallback(() => {
+    if(inputData.comminution === '원두 갈기' && inputData.beanSize === null){
+      alert('원두 사이즈를 선택해주세요')
+    } else if(inputData.comminution === '원두 갈기' && inputData.beanSize === ''){
+      alert('원두 사이즈를 선택해주세요')
+    } else if(inputData.PurchaseMethod === '구독하기' && inputData.cycle === null){
+      alert('구독 주기를 설정해주세요')
+    } else if(inputData.PurchaseMethod === '구독하기' && inputData.cycle === ''){
+      alert('구독 주기를 설정해주세요')
+    } else {
+      setOptionCKModal(true)
+    }
+  })
+
+  const [inputData, setInputData] = useState("");
+  useEffect(() => {
+      console.log(inputData)
+  }, [inputData]);
   
   return (
     <>
@@ -110,7 +135,17 @@ export default function CoffeeDetails() {
         </TabContainerBox>
       </MainContainer>
       <OptionsContainerBox>
-        <OptionsBox />  
+        <OptionsBox 
+          setInputData={setInputData}
+          // setOptionCKModal={setOptionCKModal}
+          optionAllCK={optionAllCK}
+        />   
+
+      <OptionsCKmodal
+        show={optionCKmodal}
+        onHide={() => setOptionCKModal(false)}
+        inputData={inputData}
+      />
       </OptionsContainerBox>
     </Outer>
     </Backgraund>

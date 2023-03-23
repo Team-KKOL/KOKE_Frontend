@@ -63,12 +63,52 @@ export let { mainPage, unMainPage } = page.actions
 
 
 
-// 리듀서 내보내기
+
+// 커피 상세페이지 주문 옵션 관리
+let order = createSlice({
+    name: 'order',
+    initialState: {
+        volume: '200g',  // 용량
+        comminution: '원두 분쇄 안함',  // 원두 분쇄 유무
+        beanSize: '',  // 분쇄정도
+        PurchaseMethod: "구독하기", // 구독 유무
+        cycle: "",   // 구독 주기
+    },
+    reducers : {
+        changeVolume(state, action){
+            state.volume = action.payload
+        },
+        changeComminution(state, action){
+            state.comminution = action.payload
+        },
+        changeBeanSize(state, action){
+            state.beanSize = action.payload
+        },
+        changePurchaseMethod(state, action){
+            state.PurchaseMethod = action.payload
+        },
+        changeCycle(state, action){
+            state.cycle = action.payload
+        },
+    }
+})
+
+export let { changeVolume, changeComminution, changeBeanSize, changePurchaseMethod, changeCycle } = order.actions
+
+
+
+
+
+
+
+
+//// 리듀서 내보내기
 export default configureStore({
     reducer: {
         user : user.reducer,
         header : header.reducer,
         page : page.reducer,
+        order : order.reducer,
     }
 })
 

@@ -8,6 +8,9 @@ import Select from "react-select";
 // import Form from 'react-bootstrap/Form';
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
+import Button from 'react-bootstrap/Button';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 const OuterContainer = styled.div`
@@ -200,11 +203,11 @@ const VolumeInput = styled.input.attrs({ type: 'radio' })`
 
 const beanSizeList = [
   { id: "01", value: null, label: "어떻게 갈아드릴까요?" },
-  { id: "02", value: "coffeeMaker", label: "커피 메이커" },
-  { id: "03", value: "EspressoMachine", label: "에스프레소 머신" },
-  { id: "04", value: "french press", label: "프렌치 프레스" },
-  { id: "05", value: "hand drip", label: "핸드 드립" },
-  { id: "06", value: "moka pot", label: "모카 포트" },
+  { id: "02", value: "커피 메이커", label: "커피 메이커" },
+  { id: "03", value: "에스프레소 머신", label: "에스프레소 머신" },
+  { id: "04", value: "프렌치 프레스", label: "프렌치 프레스" },
+  { id: "05", value: "핸드 드립", label: "핸드 드립" },
+  { id: "06", value: "모카 포트", label: "모카 포트" },
 ];
 
 const weekList = [
@@ -268,20 +271,20 @@ const ToggleBox = styled.div`
  
 
 
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////
 
 
 
-
-export default function OptionsBox() {
-  const [ wish, setWish ] = useState(false); 
- 
+export default function OptionsBox(props) {
+  const [ wish, setWish ] = useState(false);  
 
   const [inputs, setInputs] = useState({
     volume: '200g',  // 용량
     comminution: '원두 분쇄 안함',  // 원두 분쇄 유무
     beanSize: '',  // 분쇄정도
     PurchaseMethod: "구독하기", // 구독 유무
-    cycle: "",   // 구독 주기
+    cycle: '',   // 구독 주기
   });
 
   useEffect(() => {
@@ -298,15 +301,9 @@ export default function OptionsBox() {
       [name]: value // name 키를 가진 값을 value 로 설정
     });
 
-    // console.log(inputs);
   };
 
-  // const onReset = () => {
-  //   setInputs({
-  //     volume: '',  // 용량
-  //     beanSize: '',  // 분쇄정도
-  //   })
-  // };
+   
   
 
   return (
@@ -334,7 +331,6 @@ export default function OptionsBox() {
             <VolumeInput type="radio" name='volume' id='volume01' 
             value={'200g'} 
             onChange={onChange} 
-            // onChange={() => setVolume('200g')} 
             defaultChecked/>
             <RadioLabel volume>
               <TbPaperBag />
@@ -358,7 +354,6 @@ export default function OptionsBox() {
             <VolumeInput type="radio" name='comminution' id='comminution01' 
             value={"원두 분쇄 안함"} 
             onChange={onChange}
-            // onChange={() => setVolume('200g')} 
             defaultChecked/>
             <RadioLabel comminution>
               그대로 주세요<br/>
@@ -397,7 +392,6 @@ export default function OptionsBox() {
             <VolumeInput type="radio" name='PurchaseMethod' id='PurchaseMethod01' 
             value={"구독하기"} 
             onChange={onChange}
-            // onChange={() => setVolume('200g')} 
             defaultChecked>
             </VolumeInput>
             <RadioLabel2>구독하기</RadioLabel2>
@@ -444,7 +438,15 @@ export default function OptionsBox() {
 
       </InputContainer>
 
-      <OptionBoxBtn>구매하기</OptionBoxBtn>
+      <OptionBoxBtn 
+        onClick={(e) => {
+          e.preventDefault()
+          props.setInputData(inputs)
+          // props.setOptionCKModal(true) 
+          props.optionAllCK()
+        }}
+      >구매하기
+      </OptionBoxBtn> 
       </form>
     </OuterContainer>
   )
